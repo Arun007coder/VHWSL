@@ -2,7 +2,8 @@
 
 PT="$PWD"/bin/release/netcoreapp3.1/ubuntu.20.04-x64/publish/
 
+sudo apt-get install -y dotnet-sdk-5.0 #To install .net sdk
+
 dotnet publish -c release -r ubuntu.20.04-x64 --self-contained
-cd "$PT" || echo local
-ls "$PT"
+cd "$PT" || ls "$PT" || ! grep -i Start || ! grep -i VHWS || exit
 sudo ./Start
