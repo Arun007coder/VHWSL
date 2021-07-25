@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>HTTP_Web_Server</RootNamespace>
+    <Version>3.0.0</Version>
+    <Authors>Arun007coder</Authors>
+    <Company>Null</Company>
+    <Product>VHWS</Product>
+    <Description>A simple web server made using c#</Description>
+    <PackageReleaseNotes />
+    <SignAssembly>false</SignAssembly>
+    <Configurations>Debug;Release;Linux_Release;X64 Release</Configurations>
+    <ApplicationIcon>Icon.ico</ApplicationIcon>
+    <Platforms>AnyCPU;x64</Platforms>
+    <AssemblyName>VHWS</AssemblyName>
+    <PackageIcon>Icon.png</PackageIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <Optimize>false</Optimize>
+    <DocumentationFile>C:\Users\ADG Arun\source\repos\HTTP Web Server\HTTP Web Server\HTTP Web Server.xml</DocumentationFile>
+    <NoWarn>1701;1702;1591</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Optimize>false</Optimize>
+    <DocumentationFile>C:\Users\ADG Arun\source\repos\HTTP Web Server\HTTP Web Server\HTTP Web Server.xml</DocumentationFile>
+    <NoWarn>1701;1702;1591</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <DocumentationFile />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='X64 Release|x64'">
+    <RuntimeIdentifiers>win10-x64;linux-x64</RuntimeIdentifiers>
+    <OutputPath>H:\HTTP Web Server\linux\</OutputPath>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Root\msg\400.htm" />
+    <None Remove="Root\msg\404.htm" />
+    <None Remove="Root\msg\405.htm" />
+    <None Remove="Root\web\Add your Website Files here.txt" />
+    <None Include="Icon.png">
+      <Pack>True</Pack>
+      <PackagePath />
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Root\msg\400.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Root\msg\404.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Root\msg\405.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Root\web\Add your Website Files here.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Root\NewFolder1\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="APIs\Requests.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Docs\APIs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Docs\Errors.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Root\web\CMDOUT\CMD1_Output.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Root\web\CMDOUT\CMD2_Output.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Root\web\CMDOUT\CMD3_Output.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Settings.ini">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <Content Include=".vscode\launch.json" />
+    <Content Include="Program.cs" />
+    <Content Include="Settings.ini" />
+    <Content Include="HTTPServer.cs" />
+    <Content Include="Start">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Build" />
+    <Content Include=".gitattributes" />
+  </ItemGroup>
+</Project>

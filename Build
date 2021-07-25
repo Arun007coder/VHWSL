@@ -1,0 +1,9 @@
+#!/bin/bash
+
+export PATH="$PATH:/home/arun007/VSCODE/Projects/HTTP Web Server (1)/"
+PT=/home/$USER/VSCODE/Projects/VHWSL/bin/release/netcoreapp3.1/ubuntu.20.04-x64/publish/
+
+dotnet publish -c release -r ubuntu.20.04-x64 --self-contained
+cd "$PT" || echo local
+ls "$PT"
+sudo ./Start
