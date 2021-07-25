@@ -17,7 +17,7 @@ namespace HTTP_Web_Server
     public class HTTPServer
     {
         public const string VERSION = "HTTP/1.1";
-        public const string NAME = "C# web server v3.0.0";
+        public const string NAME = "VHWSL v1.0.0";
         public static string MSG_DIR;
         public static string WEB_DIR;
         public static string LOG_DIR;

@@ -4,17 +4,17 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <RootNamespace>HTTP_Web_Server</RootNamespace>
-    <Version>3.0.0</Version>
+    <Version>1.0.0</Version>
     <Authors>Arun007coder</Authors>
     <Company>Null</Company>
-    <Product>VHWS</Product>
-    <Description>A simple web server made using c#</Description>
+    <Product>VHWSL</Product>
+    <Description>A simple web server made using c# for linux</Description>
     <PackageReleaseNotes />
     <SignAssembly>false</SignAssembly>
     <Configurations>Debug;Release;Linux_Release;X64 Release</Configurations>
     <ApplicationIcon>Icon.ico</ApplicationIcon>
     <Platforms>AnyCPU;x64</Platforms>
-    <AssemblyName>VHWS</AssemblyName>
+    <AssemblyName>VHWSL</AssemblyName>
     <PackageIcon>Icon.png</PackageIcon>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
