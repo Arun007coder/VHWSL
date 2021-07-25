@@ -3,7 +3,9 @@
 A port of my web server to linux
 
 A simple HTTP web server made using C#
+
 Now with settings
+
 If you want to change the port which the server should listen to change port value in settings.ini
 
 To build this project. run ./Build in terminal in the root of the project
