@@ -1,6 +1,4 @@
-# Markdown heading
-
-Versatile HTTP Web Server for Linux
+# Versatile HTTP Web Server for Linux
 
 A port of my web server to linux
 
