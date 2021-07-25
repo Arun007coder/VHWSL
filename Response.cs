@@ -253,8 +253,9 @@ namespace HTTP_Web_Server
             Byte[] d = new Byte[FS.Length];
             BR.Read(d, 0, d.Length);
             FS.Close();
-            return new Response("1089" + " " + _reqmsg, "text/html", d);
             Console.WriteLine("Custom request is surcessfully working");
+            return new Response("1089" + " " + _reqmsg, "text/html", d);
+            
 
         }
 
@@ -313,7 +314,7 @@ namespace HTTP_Web_Server
                 writer.Flush();
                 stream.Write(data, 0, data.Length);
             }
-            catch (IOException e)
+            catch (IOException)
             {
                 Console.WriteLine("S001 :Connection was interuppted by host");
             }

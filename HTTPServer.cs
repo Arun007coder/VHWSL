@@ -73,59 +73,6 @@ namespace HTTP_Web_Server
             timer.Enabled = true;
         }
 
-        public static string GetLocalIPAddress()
-        {
-            var host = Dns.GetHostEntry(Dns.GetHostName());
-            foreach (var ip in host.AddressList)
-            {
-                if (ip.Address.ToString().Contains("192.168.1"))
-                {
-                    if (ip.AddressFamily == AddressFamily.InterNetwork)
-                    {
-                        return ip.ToString();
-                    }
-                }
-                
-            }
-            throw new Exception("No network adapters with an IPv4 address in the system!");
-        }
-
-        public static IPAddress GetIPAddress()
-        {
-            int count = 0;
-
-            
-            NetworkInterface[] adapters  = NetworkInterface.GetAllNetworkInterfaces();
-            foreach (NetworkInterface adapter in adapters)
-            {
-
-                IPInterfaceProperties adapterProperties = adapter.GetIPProperties();
-                MulticastIPAddressInformationCollection multiCast = adapterProperties.MulticastAddresses;
-                if (multiCast.Count > 0)
-                {
-                    Console.WriteLine(adapter.Description);
-                    foreach (IPAddressInformation multi in multiCast)
-                    {
-                        count++;
-                        Console.WriteLine(multi.Address);
-                        if (multi.Address.ToString().Contains("192.168.1."))
-                        {
-                            count++;
-                            Console.WriteLine(multi.Address);
-                            IP =  multi.Address;
-                        }
-                        else
-                        {
-                            //return "Cannot find local IP address";
-                        }
-                        
-                    }
-                }
-            }
-           return IP;
-
-        }
-
         public static void TimedEvent(object source, ElapsedEventArgs l)
         {
             string time = DateTime.Now.ToString("dd/MM/yyyy hh:mm.ss tt");
@@ -269,7 +216,7 @@ namespace HTTP_Web_Server
                     }
 
                 }
-                catch(NullReferenceException e)
+                catch(NullReferenceException)
                 {
                     Console.WriteLine("loging service has occured an error");
                 }
