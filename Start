@@ -1,4 +1,4 @@
 #!/bin/bash
 
 echo Running server with superuser privillages
-sudo ./VHWS
+sudo ./VHWSL
