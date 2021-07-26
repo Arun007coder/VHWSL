@@ -80,9 +80,11 @@ namespace HTTP_Web_Server
         }
         public HTTPServer(int _port)
         {
+            
             Port = _port;
             if(IP_Address.ToString().Contains("192.168.1.") || IP_Address.ToString() == "127.0.0.1" )
             {
+                PortForward.PF(IP_Address.ToString() , Port , Port , "TCP");
                 TL = new TcpListener(IP_Address, Port);
                 Console.WriteLine("The server is listening to " + IP_Address + ":" + Port);
             }
@@ -104,8 +106,8 @@ namespace HTTP_Web_Server
 
         public static void stop()
         {
+            PortForward.REMPF(30 , "TCP");
             Console.WriteLine("Server is stopping ...");
-            //PortForward.REMport(EPort);
             log(WEB_DIR + "/CMDOUT/CMD1_Output.txt", "null");
             log(WEB_DIR + "/CMDOUT/CMD2_Output.txt", "null");
             log(WEB_DIR + "/CMDOUT/CMD3_Output.txt", "null");

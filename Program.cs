@@ -21,18 +21,18 @@ namespace HTTP_Web_Server
 
             
             HTTPServer.SetTimer();
-            string CMD_REQ_EN = File.ReadLines(Set).Skip(29).Take(1).First();
+            string CMD_REQ_EN = File.ReadLines(Set).Skip(29).Take(1).FirstOrDefault();
             string CMD_REQ_1 = ReadSET(Set, 26);
             string CMD_REQ_2 = ReadSET(Set, 29);
             string CMD_REQ_3 = ReadSET(Set, 32);
-            string line = File.ReadLines(Set).Skip(8).Take(1).First();
-            string dir = File.ReadLines(Set).Skip(11).Take(1).First();
-            string msgdir = File.ReadLines(Set).Skip(14).Take(1).First();
-            string logdir = File.ReadLines(Set).Skip(17).Take(1).First();
-            string Logbool = File.ReadLines(Set).Skip(20).Take(1).First();
-            string Pbool = File.ReadLines(Set).Skip(23).Take(1).First();
-            string ELine = File.ReadLines(Set).Skip(26).Take(1).First();
-            string cBool = File.ReadLines(Set).Skip(23).Take(1).First();
+            string line = File.ReadLines(Set).Skip(8).Take(1).FirstOrDefault();
+            string dir = File.ReadLines(Set).Skip(11).Take(1).FirstOrDefault();
+            string msgdir = File.ReadLines(Set).Skip(14).Take(1).FirstOrDefault();
+            string logdir = File.ReadLines(Set).Skip(17).Take(1).FirstOrDefault();
+            string Logbool = File.ReadLines(Set).Skip(20).Take(1).FirstOrDefault();
+            string Pbool = File.ReadLines(Set).Skip(23).Take(1).FirstOrDefault();
+            string ELine = File.ReadLines(Set).Skip(26).Take(1).FirstOrDefault();
+            string cBool = File.ReadLines(Set).Skip(23).Take(1).FirstOrDefault();
             string IP = ReadSET(Set , 38);
             HTTPServer.IP_Address = IPAddress.Parse(IP);
             bool logbool = bool.Parse(Logbool);
@@ -223,7 +223,7 @@ namespace HTTP_Web_Server
 
         private static string ReadSET(string _File , int _skip)
         {
-            return File.ReadLines(_File).Skip(_skip).First();
+            return File.ReadLines(_File).Skip(_skip).FirstOrDefault();
         }
     }
 }
