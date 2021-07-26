@@ -19,7 +19,7 @@ then
     echo "sudo ./$application" >> "$PT"Start
     chmod +x Start
     find ./* -exec tar -zcvf "$application"-"$VER"-Self_Contained.tar.gz {} +
-    echo build of "$application" finished.
+    echo build of "$application" finished. Output is in "$PT" folder
     echo the compressed build can be found in output directory as "$application"-"$VER"-Self_Contained.tar.gz
     if [ "$canRUN" == true ]
     then
@@ -42,7 +42,7 @@ then
     chmod +x Start
     rm -rf publish
     find ./* -exec tar -zcvf "$application"-"$VER".tar.gz {} +
-    echo build of "$application" finished.
+    echo build of "$application" finished. Output is in "$PTNCB" folder
     echo the compressed build can be found in output directory as "$application"-"$VER".tar.gz
     if [ "$canRUN" == true ]
     then
