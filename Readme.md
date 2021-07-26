@@ -12,6 +12,10 @@ You can execute commands remotely.
 
 ## Build instructions
 
-To build this project. run  ...shell ./Build --cb VHWSL v1.0.0 ...
+To build this project. run  
+
+```shell
+./Build --cb VHWSL v1.0.0 
+```
 
 Made with tutorial of <https://youtu.be/HFnJLv2Q1go>
