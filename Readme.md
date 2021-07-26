@@ -15,7 +15,9 @@ You can execute commands remotely.
 To build this project. run  
 
 ```shell
-./Build --cb VHWSL v1.0.0 
+./Build --cb VHWSL v1.0.0
 ```
+
+in the project root
 
 Made with tutorial of <https://youtu.be/HFnJLv2Q1go>
