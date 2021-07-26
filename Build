@@ -3,74 +3,98 @@
 PT="$PWD"/bin/release/netcoreapp3.1/ubuntu.20.04-x64/publish/
 PTNCB="$PWD"/bin/release/netcoreapp3.1/ubuntu.20.04-x64/
 application="$2"
-
-
-sudo apt-get install -y dotnet-sdk-5.0 #To install .net sdk
-
-
+VER="$3"
+canRUN="$4"
 
 if [ "$1" == --cb ] || [ "$1" == -C ] ##Contained build
 then
+    sudo apt-get install -y dotnet-sdk-5.0 #To install .net sdk
     dotnet publish -c release -r ubuntu.20.04-x64 --self-contained
-    cd "$PT" || ls "$PT" || ! grep -i Start || ! grep -i VHWS || exit
+    cd "$PTNCB" || exit
+    rm "$application"-"$VER".tar.gz
+    cd "$PT" || exit
+    rm "$application"-"$VER"-Self_Contained.tar.gz || return 255
     rm Start
-    echo ' ' >> "$PT"Start
     echo 'echo Running server with superuser privillages' >> "$PT"Start
     echo "sudo ./$application" >> "$PT"Start
     chmod +x Start
-    tar cf "$PT"
-    source Start
+    find ./* -exec tar -zcvf "$application"-"$VER"-Self_Contained.tar.gz {} +
+    echo build of "$application" finished.
+    echo the compressed build can be found in output directory as "$application"-"$VER"-Self_Contained.tar.gz
+    if [ "$canRUN" == true ]
+    then
+           source Start 
+    fi
     exit
 fi
 
 if [ "$1" == --ncb ] || [ "$!" == -F ] ##Non contained build
 then
+    sudo apt-get install -y dotnet-sdk-5.0 #To install .net sdk
     dotnet publish -c release -r ubuntu.20.04-x64 --self-contained false
-
-    cd "$PTNCB"
+    cd "$PT" || exit
+    rm "$application"-"$VER"-Self_Contained.tar.gz
+    cd "$PTNCB" || exit
+    rm "$application"-"$VER".tar.gz
     rm Start
-    echo ' ' >> "$PTNCB"Start
     echo 'echo Running server with superuser privillages' >> "$PTNCB"Start
     echo "sudo ./$application" >> "$PTNCB"Start
     chmod +x Start
     rm -rf publish
-    DIRCONT="$(dir $PTNCB)"
-    dirc=$(echo $DIRCONT | sed "s/\n/ /g")
-    cd "$PTNCB" || exit
-    tar -zcvf $application.tar.gz "$dirc" 
-    source Start
+    find ./* -exec tar -zcvf "$application"-"$VER".tar.gz {} +
+    echo build of "$application" finished.
+    echo the compressed build can be found in output directory as "$application"-"$VER".tar.gz
+    if [ "$canRUN" == true ]
+    then
+        source Start 
+    fi
     exit
 fi
 
 if [ "$1" == --help ] || [ "$1" == -h ] ; then
         echo
-        echo .net Project builder
+        echo DotNet project builder
         echo
         echo help: Arguments
         echo 
-        echo -c --cb  : Contained build : To build the application to run without the .net runtime installed
-        echo
-        echo -F --ncb : Non contained build : To build the application as a .net framework depended application. 
+        echo -c --cb [application name] [Version] [canRUN] : Contained build : To build the application to run without the .net runtime installed.
+        echo 
+        echo -F --ncb [application name] [Version] [canRUN] : Non contained build : To build the application as a .net framework depended application. 
         echo
         echo -h --help : To show this message
+        echo 
+        echo [application name] : {type = string} The name of your application. EX: myapp
+        echo 
+        echo [Version] : {type = string} The version of your application. EX: v2.1.3
+        echo 
+        echo [canRUN] : {type = bool} Whether to run the output build of project. EX: true
         echo
         echo Contained build will make the deployment large but it will run without .net runtime installed in targeted machine
         echo
         echo Non contained build will make the deployment small but it want .net runtime installed in targeted machine
-        
+        echo 
+        echo A tar.gz file will be made in the output directory of the project with project files
         else
         echo
         echo .net Project builder
         echo
         echo help: Arguments
         echo 
-        echo -c --cb  : Contained build : To build the application to run without the .net runtime installed
+        echo -c --cb [application name] [Version] [canRUN] : Contained build : To build the application to run without the .net runtime installed
         echo
-        echo -F --ncb : Non contained build : To build the application as a .net framework depended application. 
+        echo -F --ncb [application name] [Version] [canRUN] : Non contained build : To build the application as a .net framework depended application. 
         echo
         echo -h --help : To show this message
+        echo 
+        echo [application name] : {type = string} The name of your application. EX: myapp
+        echo 
+        echo [Version] : {type = string} The version of your application. EX: v2.1.3
+        echo 
+        echo [canRUN] : [type = bool] Whether to run the output build of project. EX: true
         echo
         echo Contained build will make the deployment large but it will run without .net runtime installed in targeted machine
         echo
         echo Non contained build will make the deployment small but it want .net runtime installed in targeted machine
+        echo 
+        echo A tar.gz file will be made in the output directory of the project with project files
 fi
