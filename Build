@@ -1,9 +1,76 @@
 #!/bin/bash
 
 PT="$PWD"/bin/release/netcoreapp3.1/ubuntu.20.04-x64/publish/
+PTNCB="$PWD"/bin/release/netcoreapp3.1/ubuntu.20.04-x64/
+application="$2"
+
 
 sudo apt-get install -y dotnet-sdk-5.0 #To install .net sdk
 
-dotnet publish -c release -r ubuntu.20.04-x64 --self-contained
-cd "$PT" || ls "$PT" || ! grep -i Start || ! grep -i VHWS || exit
-sudo ./Start
+
+
+if [ "$1" == --cb ] || [ "$1" == -C ] ##Contained build
+then
+    dotnet publish -c release -r ubuntu.20.04-x64 --self-contained
+    cd "$PT" || ls "$PT" || ! grep -i Start || ! grep -i VHWS || exit
+    rm Start
+    echo ' ' >> "$PT"Start
+    echo 'echo Running server with superuser privillages' >> "$PT"Start
+    echo "sudo ./$application" >> "$PT"Start
+    chmod +x Start
+    tar cf "$PT"
+    source Start
+    exit
+fi
+
+if [ "$1" == --ncb ] || [ "$!" == -F ] ##Non contained build
+then
+    dotnet publish -c release -r ubuntu.20.04-x64 --self-contained false
+
+    cd "$PTNCB"
+    rm Start
+    echo ' ' >> "$PTNCB"Start
+    echo 'echo Running server with superuser privillages' >> "$PTNCB"Start
+    echo "sudo ./$application" >> "$PTNCB"Start
+    chmod +x Start
+    rm -rf publish
+    DIRCONT="$(dir $PTNCB)"
+    dirc=$(echo $DIRCONT | sed "s/\n/ /g")
+    cd "$PTNCB" || exit
+    tar -zcvf $application.tar.gz "$dirc" 
+    source Start
+    exit
+fi
+
+if [ "$1" == --help ] || [ "$1" == -h ] ; then
+        echo
+        echo .net Project builder
+        echo
+        echo help: Arguments
+        echo 
+        echo -c --cb  : Contained build : To build the application to run without the .net runtime installed
+        echo
+        echo -F --ncb : Non contained build : To build the application as a .net framework depended application. 
+        echo
+        echo -h --help : To show this message
+        echo
+        echo Contained build will make the deployment large but it will run without .net runtime installed in targeted machine
+        echo
+        echo Non contained build will make the deployment small but it want .net runtime installed in targeted machine
+        
+        else
+        echo
+        echo .net Project builder
+        echo
+        echo help: Arguments
+        echo 
+        echo -c --cb  : Contained build : To build the application to run without the .net runtime installed
+        echo
+        echo -F --ncb : Non contained build : To build the application as a .net framework depended application. 
+        echo
+        echo -h --help : To show this message
+        echo
+        echo Contained build will make the deployment large but it will run without .net runtime installed in targeted machine
+        echo
+        echo Non contained build will make the deployment small but it want .net runtime installed in targeted machine
+fi

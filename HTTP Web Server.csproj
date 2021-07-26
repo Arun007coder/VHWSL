@@ -32,6 +32,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <DocumentationFile />
+    <InvariantGlobalization>true</InvariantGlobalization>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='X64 Release|x64'">
     <RuntimeIdentifiers>win10-x64;linux-x64</RuntimeIdentifiers>
@@ -106,9 +107,6 @@
     <Content Include="Program.cs" />
     <Content Include="Settings.ini" />
     <Content Include="HTTPServer.cs" />
-    <Content Include="Start">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="Build" />
     <Content Include=".gitattributes" />
   </ItemGroup>
