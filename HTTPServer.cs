@@ -86,6 +86,10 @@ namespace HTTP_Web_Server
                 TL = new TcpListener(IP_Address, Port);
                 Console.WriteLine("The server is listening to " + IP_Address + ":" + Port);
             }
+            else
+            {
+                throw new Exception("IP_Address not correct");
+            }
             
             
 
