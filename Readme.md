@@ -15,6 +15,7 @@ You can execute commands remotely.
 There are two type of Releases:
 
 *Self contained release
+
 *Standard release
 
 Self contained releases are the releases which can run without .net runtime. It requires more space
