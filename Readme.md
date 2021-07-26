@@ -8,8 +8,10 @@ Now with settings
 
 If you want to change the port which the server should listen to change port value in settings.ini
 
-To build this project. run ./Build in terminal in the root of the project
-
 You can execute commands remotely.
 
-Made with tutorial of <https://youtu.be/HFnJLv2Q1go>.
+## Build instructions
+
+To build this project. run  ...shell ./Build --cb VHWSL v1.0.0 ...
+
+Made with tutorial of <https://youtu.be/HFnJLv2Q1go>
