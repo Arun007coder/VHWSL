@@ -10,6 +10,30 @@ If you want to change the port which the server should listen to change port val
 
 You can execute commands remotely.
 
+## Dependencies
+
+For Standard release :
+
+*.net runtime
+
+*miniupnpc for using port forward
+
+For Self contained release :
+
+*miniupnpc for using port forward
+
+For instaling miniupnpc :
+
+in ubuntu and other distros with apt package manager, Run
+
+```shell
+sudo apt install miniupnpc
+```
+
+In other distros
+
+coming soon(or later)
+
 ## Releases
 
 There are two type of Releases:
@@ -49,5 +73,11 @@ To build this project. run
 ```
 
 in the project root using terminal
+
+## Changelog (v2.0.0)
+
+*Added function to port forward . To enable port forwarding change the value of Port forward to true
+
+*Fixed the logging error
 
 Made with tutorial of <https://youtu.be/HFnJLv2Q1go>

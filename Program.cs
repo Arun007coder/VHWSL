@@ -12,6 +12,7 @@ namespace HTTP_Web_Server
         public static string CMD_REQ_2;
         public static string CMD_REQ_3;
         public static string IP;
+        public static bool canPF;
 
         static void Main(string[] args)
         {
@@ -34,6 +35,7 @@ namespace HTTP_Web_Server
             string ELine = File.ReadLines(Set).Skip(26).Take(1).FirstOrDefault();
             string cBool = File.ReadLines(Set).Skip(23).Take(1).FirstOrDefault();
             string IP = ReadSET(Set , 38);
+            canPF = bool.Parse(ReadSET(Set, 41));
             HTTPServer.IP_Address = IPAddress.Parse(IP);
             bool logbool = bool.Parse(Logbool);
             bool UPNPF = bool.Parse(Pbool);

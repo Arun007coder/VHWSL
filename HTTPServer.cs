@@ -84,7 +84,15 @@ namespace HTTP_Web_Server
             Port = _port;
             if(IP_Address.ToString().Contains("192.168.1.") || IP_Address.ToString() == "127.0.0.1" )
             {
-                PortForward.PF(IP_Address.ToString() , Port , Port , "TCP");
+                if (Program.canPF)
+                {
+                    PortForward.PF(IP_Address.ToString() , Port , Port , "TCP");
+                    Console.WriteLine("successfuly forwarded the port :" + Port + " to the internet");
+                }
+                else
+                {
+                    Console.WriteLine("Port Forwarding is disabled. You have to manually port forward ");
+                }
                 TL = new TcpListener(IP_Address, Port);
                 Console.WriteLine("The server is listening to " + IP_Address + ":" + Port);
             }
@@ -106,7 +114,10 @@ namespace HTTP_Web_Server
 
         public static void stop()
         {
-            PortForward.REMPF(30 , "TCP");
+            if(Program.canPF)
+            {
+                PortForward.REMPF(30 , "TCP");
+            }
             Console.WriteLine("Server is stopping ...");
             log(WEB_DIR + "/CMDOUT/CMD1_Output.txt", "null");
             log(WEB_DIR + "/CMDOUT/CMD2_Output.txt", "null");
@@ -209,7 +220,7 @@ namespace HTTP_Web_Server
                 log(LOG_DIR + "Debug Log.txt", CMDEDIN5 + "/n" + CMDEDIN6 + "/n" + CMDEDIN7);
                 try
                 {
-                    if (msg == " ")
+                    if (msg.Contains("/"))
                     {
                         if (Lbool)
                         {
@@ -218,7 +229,7 @@ namespace HTTP_Web_Server
                     }
                     else
                     {
-                        Console.WriteLine("logging error");
+                        Console.WriteLine("loging service has occured an error");
                     }
 
                 }
@@ -301,19 +312,19 @@ namespace HTTP_Web_Server
         {
             if(slot == 0)
             {
-                CMD1 = string.Empty;
+                CMD1_Output = string.Empty;
                 log(WEB_DIR + @"/CMDOUT/CMD1_Output.txt", "null");
             }
 
             if(slot == 1)
             {
-                CMD2 = string.Empty;
+                CMD2_Output = string.Empty;
                 log(WEB_DIR + @"/CMDOUT/CMD2_Output.txt", "null");
             }
 
             if(slot == 2)
             {
-                CMD3 = string.Empty;
+                CMD3_output = string.Empty;
                 log(WEB_DIR + @"/CMDOUT/CMD3_Output.txt", "null");
             }
 
