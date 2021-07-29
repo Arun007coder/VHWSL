@@ -14,6 +14,8 @@ then
     rm "$application"-"$VER".tar.gz
     cd "$PT" || exit
     rm "$application"-"$VER"-Self_Contained.tar.gz || return 255
+    sudo rm -rf "$PT"/Root/logs/
+    mkdir "$PT"/Root/logs/
     rm Start
     echo 'echo Running server with superuser privillages' >> "$PT"Start
     echo "sudo ./$application" >> "$PT"Start
@@ -36,6 +38,8 @@ then
     rm "$application"-"$VER"-Self_Contained.tar.gz
     cd "$PTNCB" || exit
     rm "$application"-"$VER".tar.gz
+    sudo rm -rf "$PTNCB"/Root/logs/
+    mkdir "$PTNCB"/Root/logs/
     rm Start
     echo 'echo Running server with superuser privillages' >> "$PTNCB"Start
     echo "sudo ./$application" >> "$PTNCB"Start
