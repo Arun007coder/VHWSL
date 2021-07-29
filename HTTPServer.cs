@@ -17,7 +17,7 @@ namespace HTTP_Web_Server
     public class HTTPServer
     {
         public const string VERSION = "HTTP/1.1";
-        public const string NAME = "VHWSL v1.0.0";
+        public const string NAME = "VHWSL v2.0.0";
         public static string MSG_DIR;
         public static string WEB_DIR;
         public static string LOG_DIR;
@@ -75,7 +75,7 @@ namespace HTTP_Web_Server
 
         public static void TimedEvent(object source, ElapsedEventArgs l)
         {
-            string time = DateTime.Now.ToString("dd/MM/yyyy hh:mm.ss tt");
+            string time = DateTime.Now.ToString("dd-MM-yyyy hh:mm.ss tt");
             FileName = time + nme;
         }
         public HTTPServer(int _port)
