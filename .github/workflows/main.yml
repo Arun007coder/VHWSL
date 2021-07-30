@@ -22,6 +22,8 @@ jobs:
     env:
       VER: v2.0.0
       APPN: VHWSL
+      NCBEXEN: $APPN-$VER-Sslf_Contained.tar.gz
+      CBEXEN: $APPN-$VER.tar.gz
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -42,5 +44,5 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: $APPN - $VER -Self_Contained
-          path: /home/runner/work/VHWSL/VHWSL/bin/release/netcoreapp3.1/ubuntu.20.04-x64/publish/"$APPN" - "$VER" -Self_Contained.tar.gz
+          path: /home/runner/work/VHWSL/VHWSL/bin/release/netcoreapp3.1/ubuntu.20.04-x64/publish/$NCBEXEN
           retention-days: 10
