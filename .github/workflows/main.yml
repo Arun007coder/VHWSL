@@ -20,7 +20,7 @@ jobs:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     env:
-      VER: v2.0.0
+      VER: NOVER
       APPN: VHWSL
       NCBEXEN: $APPN-$VER-Sslf_Contained.tar.gz
       CBEXEN: $APPN-$VER.tar.gz
@@ -43,13 +43,13 @@ jobs:
       - name: 'Upload Self Contained Artifact'
         uses: actions/upload-artifact@v2
         with:
-          name: "VHWSL-v2.0.0-Self_Contained.tar.gz"
-          path: "/home/runner/work/VHWSL/VHWSL/bin/release/netcoreapp3.1/ubuntu.20.04-x64/publish/VHWSL-v2.0.0-Self_Contained.tar.gz"
+          name: "VHWSL-NOVER-Self_Contained.tar.gz"
+          path: "/home/runner/work/VHWSL/VHWSL/bin/release/netcoreapp3.1/ubuntu.20.04-x64/publish/VHWSL-NOVER-Self_Contained.tar.gz"
           retention-days: 10
 
       - name: 'Upload standard Artifact'
         uses: actions/upload-artifact@v2
         with:
-          name: "VHWSL-v2.0.0.tar.gz"
-          path: "/home/runner/work/VHWSL/VHWSL/bin/release/netcoreapp3.1/ubuntu.20.04-x64/VHWSL-v2.0.0.tar.gz"
+          name: "VHWSL-NOVER.tar.gz"
+          path: "/home/runner/work/VHWSL/VHWSL/bin/release/netcoreapp3.1/ubuntu.20.04-x64/VHWSL-NOVER.tar.gz"
           retention-days: 10
