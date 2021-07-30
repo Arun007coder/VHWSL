@@ -35,10 +35,8 @@ jobs:
         run: echo Hello, world!
 
       # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          ./Build --ncb $APPN $VER
-          ./Build --cb $APPN $VER
+      - name: Building self contained release
+        run: ./Build --cb $APPN $VER
           
       - name: 'Upload Self Contained Artifact'
         uses: actions/upload-artifact@v2
@@ -46,7 +44,10 @@ jobs:
           name: "VHWSL-NOVER-Self_Contained.tar.gz"
           path: "/home/runner/work/VHWSL/VHWSL/bin/release/netcoreapp3.1/ubuntu.20.04-x64/publish/VHWSL-NOVER-Self_Contained.tar.gz"
           retention-days: 10
-
+          
+      - name: Building Standard Release
+        run: ./Build --ncb $APPN $VER
+          
       - name: 'Upload standard Artifact'
         uses: actions/upload-artifact@v2
         with:
