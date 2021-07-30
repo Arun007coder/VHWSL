@@ -39,27 +39,27 @@ jobs:
         env:
            VER: $(git rev-parse --short <commit_hash>)
            CBEXEN: $APPN-$VER.tar.gz
-        run: ./Build --cb $APPN $VER
+        run: ./Build --cb $APPN v2.0.0
           
       - name: 'Upload Self Contained Artifact'
         uses: actions/upload-artifact@v2
         env:
           VER: git rev-parse --short <commit_hash>
-          NCBEXEN: $APPN-$VER-Sslf_Contained.tar.gz
+          NCBEXEN: $APPN-v2.0.0-Sslf_Contained.tar.gz
         with:
-          name: $NCBEXEN
-          path: "/home/runner/work/VHWSL/VHWSL/bin/release/netcoreapp3.1/ubuntu.20.04-x64/publish/$NCBEXEN"
+          name: $APPN-v2.0.0-Sslf_Contained.tar.gz
+          path: "/home/runner/work/VHWSL/VHWSL/bin/release/netcoreapp3.1/ubuntu.20.04-x64/publish/VHWSL-v2.0.0-Sslf_Contained.tar.gz"
           retention-days: 10
           
       - name: Building Standard Release
         env:
            VER: $(git rev-parse --short <commit_hash>)
-           CBEXEN: $APPN-$VER.tar.gz
-        run: ./Build --ncb $APPN $VER
+           CBEXEN: VHWSL-v2.0.0.tar.gz
+        run: ./Build --ncb $APPN v2.0.0
           
       - name: 'Upload standard Artifact'
         uses: actions/upload-artifact@v2
         with:
-          name: $CBEXEN
-          path: "/home/runner/work/VHWSL/VHWSL/bin/release/netcoreapp3.1/ubuntu.20.04-x64/$CBEXEN"
+          name: VHWSL-v2.0.0
+          path: "/home/runner/work/VHWSL/VHWSL/bin/release/netcoreapp3.1/ubuntu.20.04-x64/VHWSL-v2.0.0.tar.gz"
           retention-days: 10
