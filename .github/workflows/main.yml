@@ -47,7 +47,7 @@ jobs:
           VER: git rev-parse --short <commit_hash>
           NCBEXEN: $APPN-v2.0.0-Sslf_Contained.tar.gz
         with:
-          name: VHWSL-v2.0.0-Slf_Contained
+          name: VHWSL-v2.0.0-Self_Contained
           path: "/home/runner/work/VHWSL/VHWSL/bin/release/netcoreapp3.1/ubuntu.20.04-x64/publish/VHWSL-v2.0.0-Self_Contained.tar.gz"
           retention-days: 10
           
