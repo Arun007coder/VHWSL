@@ -43,13 +43,13 @@ jobs:
       - name: 'Upload Self Contained Artifact'
         uses: actions/upload-artifact@v2
         with:
-          name: "VHWSL-$VER-Self_Contained.tar.gz"
-          path: "/home/runner/work/VHWSL/VHWSL/bin/release/netcoreapp3.1/ubuntu.20.04-x64/publish/VHWSL-$VER-Self_Contained.tar.gz"
+          name: "VHWSL-v2.0.0-Self_Contained.tar.gz"
+          path: "/home/runner/work/VHWSL/VHWSL/bin/release/netcoreapp3.1/ubuntu.20.04-x64/publish/VHWSL-v2.0.0-Self_Contained.tar.gz"
           retention-days: 10
 
       - name: 'Upload standard Artifact'
         uses: actions/upload-artifact@v2
         with:
-          name: "VHWSL-$VER.tar.gz"
-          path: "/home/runner/work/VHWSL/VHWSL/bin/release/netcoreapp3.1/ubuntu.20.04-x64/VHWSL-$VER.tar.gz"
+          name: "VHWSL-v2.0.0.tar.gz"
+          path: "/home/runner/work/VHWSL/VHWSL/bin/release/netcoreapp3.1/ubuntu.20.04-x64/VHWSL-v2.0.0.tar.gz"
           retention-days: 10
