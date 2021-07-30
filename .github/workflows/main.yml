@@ -36,23 +36,30 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: Building self contained release
+        env:
+           VER: $(git rev-parse --short <commit_hash>)
+           CBEXEN: $APPN-$VER.tar.gz
         run: ./Build --cb $APPN $VER
           
       - name: 'Upload Self Contained Artifact'
         uses: actions/upload-artifact@v2
         env:
           VER: git rev-parse --short <commit_hash>
+          NCBEXEN: $APPN-$VER-Sslf_Contained.tar.gz
         with:
-          name: $("VHWSL"$VER"-Self_Contained.tar.gz")
-          path: "/home/runner/work/VHWSL/VHWSL/bin/release/netcoreapp3.1/ubuntu.20.04-x64/publish/$(VHWSL'$VER'-Self_Contained.tar.gz)"
+          name: $NCBEXEN
+          path: "/home/runner/work/VHWSL/VHWSL/bin/release/netcoreapp3.1/ubuntu.20.04-x64/publish/$NCBEXEN"
           retention-days: 10
           
       - name: Building Standard Release
+        env:
+           VER: $(git rev-parse --short <commit_hash>)
+           CBEXEN: $APPN-$VER.tar.gz
         run: ./Build --ncb $APPN $VER
           
       - name: 'Upload standard Artifact'
         uses: actions/upload-artifact@v2
         with:
-          name: $("VHWSL"$VER)
-          path: "/home/runner/work/VHWSL/VHWSL/bin/release/netcoreapp3.1/ubuntu.20.04-x64/$(VHWSL'$VER'.tar.gz)"
+          name: $CBEXEN
+          path: "/home/runner/work/VHWSL/VHWSL/bin/release/netcoreapp3.1/ubuntu.20.04-x64/$CBEXEN"
           retention-days: 10
