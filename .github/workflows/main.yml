@@ -44,5 +44,5 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: $APPN - $VER -Self_Contained
-          path: /home/runner/work/VHWSL/VHWSL/bin/release/netcoreapp3.1/ubuntu.20.04-x64/publish/$NCBEXEN
+          path: /home/runner/work/VHWSL/VHWSL/bin/release/netcoreapp3.1/ubuntu.20.04-x64/publish/VHWSL-v2.0.0-Self_Contained.tar.gz
           retention-days: 10
