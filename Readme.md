@@ -58,6 +58,14 @@ in the root of the extracted folder.
 
 ## Build instructions
 
+dotnet sdk is important to build the application. To install it run 
+
+```shell
+./Build -I
+```
+in the project root using terminal. It will install dotnet sdk 5.0 and dotnet runtime 3.1
+
+
 To build this project as a self contained build. run  
 
 ```shell
@@ -65,6 +73,7 @@ To build this project as a self contained build. run
 ```
 
 in the project root using terminal
+
 
 To build this project. run
 
