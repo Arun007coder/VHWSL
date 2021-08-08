@@ -6,9 +6,18 @@ application="$2"
 VER="$3"
 canRUN="$4"
 
+if [ "$1" == --insdk ] || [ "$1" == -I ] ; then
+    echo installing dotnet sdk
+    wget https://dot.net/v1/dotnet-install.sh
+    source dotnet-install.sh -c Current
+    echo installed dotnet sdk. Removing the setup file ...
+    rm dotnet-install.sh
+    exit 1
+fi
+
 if [ "$1" == --cb ] || [ "$1" == -C ] ##Contained build
 then
-    sudo apt-get install -y dotnet-sdk-5.0 #To install .net sdk
+    #sudo apt-get install -y dotnet-sdk-5.0 #To install .net sdk
     dotnet publish -c release -r ubuntu.20.04-x64 --self-contained
     cd "$PTNCB" || exit
     rm "$application"-"$VER".tar.gz
@@ -32,7 +41,7 @@ fi
 
 if [ "$1" == --ncb ] || [ "$!" == -F ] ##Non contained build
 then
-    sudo apt-get install -y dotnet-sdk-5.0 #To install .net sdk
+    #sudo apt-get install -y dotnet-sdk-5.0 #To install .net sdk
     dotnet publish -c release -r ubuntu.20.04-x64 --self-contained false
     cd "$PT" || exit
     rm "$application"-"$VER"-Self_Contained.tar.gz
@@ -66,6 +75,8 @@ if [ "$1" == --help ] || [ "$1" == -h ] ; then
         echo -F --ncb [application name] [Version] [canRUN] : Non contained build : To build the application as a .net framework depended application. 
         echo
         echo -h --help : To show this message
+        echo
+        echo -I --insdk : To install the dotnet sdk. Only run it once
         echo 
         echo [application name] : {type = string} The name of your application. EX: myapp
         echo 
