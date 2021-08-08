@@ -46,8 +46,8 @@ jobs:
           VER: git rev-parse --short <commit_hash>
           NCBEXEN: $APPN-v2.0.0-Sslf_Contained.tar.gz
         with:
-          name: VHWSL-'$git_hash'-Self_Contained
-          path: /home/runner/work/VHWSL/VHWSL/bin/release/netcoreapp3.1/ubuntu.20.04-x64/publish/VHWSL-'env.git_hash'-Self_Contained.tar.gz
+          name: VHWSL-$git_hash-Self_Contained
+          path: /home/runner/work/VHWSL/VHWSL/bin/release/netcoreapp3.1/ubuntu.20.04-x64/publish/VHWSL-$git_hash-Self_Contained.tar.gz
           retention-days: 10
           
       - name: Building Standard Release
@@ -59,6 +59,6 @@ jobs:
       - name: 'Upload standard Artifact'
         uses: actions/upload-artifact@v2
         with:
-          name: VHWSL-'$git_hash'
-          path: /home/runner/work/VHWSL/VHWSL/bin/release/netcoreapp3.1/ubuntu.20.04-x64/VHWSL-'env.git_hash'.tar.gz
+          name: VHWSL-$git_hash
+          path: /home/runner/work/VHWSL/VHWSL/bin/release/netcoreapp3.1/ubuntu.20.04-x64/VHWSL-$git_hash.tar.gz
           retention-days: 10
