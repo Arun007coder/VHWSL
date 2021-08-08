@@ -1,5 +1,6 @@
 {
     "version": "0.2.0",
+
     "configurations": [
         {
             // Use IntelliSense to find out which attributes exist for C# debugging
@@ -10,8 +11,12 @@
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/bin/Debug/netcoreapp3.1/VHWS.dll",
-            "args": [],
+            "program": "${workspaceFolder}/bin/Debug/netcoreapp3.1/VHWSL.dll",
+            "args": ["sudo"],
+            "launchBrowser": {
+                "enabled": true,
+                "args": "localhost:30"
+            },
             "cwd": "${workspaceFolder}",
             // For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console
             "console": "externalTerminal",
