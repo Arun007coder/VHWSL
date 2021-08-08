@@ -22,7 +22,7 @@ jobs:
     env:
       APPN: VHWSL
       NCBEXEN: $APPN-$VER-Sslf_Contained.tar.gz
-      git_hash: "$(git rev-parse --short '$GITHUB_SHA')"
+      git_hash: NaN
       CBEXEN: $APPN-$VER.tar.gz
 
     # Steps represent a sequence of tasks that will be executed as part of the job
@@ -38,7 +38,7 @@ jobs:
       - name: Building self contained release
         env:
            CBEXEN: $APPN-$VER.tar.gz
-        run: ./Build --cb $APPN $git_hash
+        run: $git_hash=$(git rev-parse --short '$GITHUB_SHA') && ./Build --cb $APPN $git_hash 
           
       - name: 'Upload Self Contained Artifact'
         uses: actions/upload-artifact@v2
@@ -54,7 +54,7 @@ jobs:
         env:
            VER: $(git rev-parse --short <commit_hash>)
            CBEXEN: VHWSL-v2.0.0.tar.gz
-        run: ./Build --ncb $APPN $git_hash
+        run: $git_hash=$(git rev-parse --short '$GITHUB_SHA') && ./Build --ncb $APPN $git_hash
           
       - name: 'Upload standard Artifact'
         uses: actions/upload-artifact@v2
