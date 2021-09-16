@@ -1,0 +1,20 @@
+@media (max-width:760px){
+    .inner, .container, .er-text{
+        width: 90%;
+    }
+    
+    .heading-er-code .er-text-p{
+        margin: 0 auto;
+    }
+
+    .er-text{
+        margin: 0 auto;
+    }
+}
+
+@media (max-width:540px){
+    .er-text-p{
+        font-size: 14px;
+        line-height: 16px;
+    }
+}

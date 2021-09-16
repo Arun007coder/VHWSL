@@ -10,6 +10,10 @@ If you want to change the port which the server should listen to change port val
 
 You can execute commands remotely.
 
+## Contributions
+
+Thanks to @Harry260 for making the custom error pages
+
 ## Dependencies
 
 For Standard release :

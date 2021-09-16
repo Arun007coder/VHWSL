@@ -1,0 +1,27 @@
+/*FONT IMPORT (SF Pro Text)[.ttf]*/
+
+@font-face {
+    font-family: sf-regular;
+    src: url('../assets/fonts/SF Pro Text/regular.ttf');
+} 
+
+@font-face {
+    font-family: sf-medium;
+    src: url('../assets/fonts/SF Pro Text/medium.ttf');
+} 
+
+@font-face {
+    font-family: sf-semi;
+    src: url('../assets/fonts/SF Pro Text/semibold.ttf');
+} 
+
+@font-face {
+    font-family: sf-bold;
+    src: url('../assets/fonts/SF Pro Text/bold.ttf');
+} 
+
+@font-face {
+    font-family: sf-heavy;
+    src: url('../assets/fonts/SF Pro Text/heavy.ttf');
+} 
+

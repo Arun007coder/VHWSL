@@ -64,6 +64,30 @@
     <Content Include="Root\web\Add your Website Files here.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+        <Content Include="Root\msg\css\fonts.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Root\msg\css\responsive.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Root\msg\css\style.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Root\msg\assets\fonts\SF Pro Text\bold.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Root\msg\assets\fonts\SF Pro Text\regular.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Root\msg\assets\fonts\SF Pro Text\heavy.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Root\msg\assets\fonts\SF Pro Text\medium.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Root\msg\assets\images\error.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Root\NewFolder1\" />

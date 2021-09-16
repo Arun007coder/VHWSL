@@ -23,7 +23,6 @@ namespace HTTP_Web_Server
         public static string LOG_DIR;
         private static string HNAme = Dns.GetHostName();
         public static IPAddress IP_Address;
-        public static IPAddress IP;
         public static string DEF_WEB_DIR = Environment.CurrentDirectory + "/Root/web/";
         public static string DEF_MSG_DIR = Environment.CurrentDirectory + "/Root/msg/";
         public static string DEF_LOG_DIR = Environment.CurrentDirectory + "/Root/logs/";
