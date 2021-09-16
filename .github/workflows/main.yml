@@ -20,9 +20,9 @@ jobs:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     env:
-      VER: $(git rev-parse --short <commit_hash>)
       APPN: VHWSL
       NCBEXEN: $APPN-$VER-Sslf_Contained.tar.gz
+      git_hash: NaN
       CBEXEN: $APPN-$VER.tar.gz
 
     # Steps represent a sequence of tasks that will be executed as part of the job
@@ -32,14 +32,13 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: echo Hello, world!
+        run: echo ${GITHUB_SHA::6} >> $git_hash
 
       # Runs a set of commands using the runners shell
       - name: Building self contained release
         env:
-           VER: $(git rev-parse --short <commit_hash>)
            CBEXEN: $APPN-$VER.tar.gz
-        run: ./Build --cb $APPN v2.0.0
+        run: ./Build --cb $APPN ${GITHUB_SHA::6}
           
       - name: 'Upload Self Contained Artifact'
         uses: actions/upload-artifact@v2
@@ -47,19 +46,19 @@ jobs:
           VER: git rev-parse --short <commit_hash>
           NCBEXEN: $APPN-v2.0.0-Sslf_Contained.tar.gz
         with:
-          name: VHWSL-v2.0.0-Self_Contained
-          path: "/home/runner/work/VHWSL/VHWSL/bin/release/netcoreapp3.1/ubuntu.20.04-x64/publish/VHWSL-v2.0.0-Self_Contained.tar.gz"
+          name: VHWSL- $git_hash -Self_Contained
+          path: /home/runner/work/VHWSL/VHWSL/bin/release/netcoreapp3.1/ubuntu.20.04-x64/publish/
           retention-days: 10
           
       - name: Building Standard Release
         env:
            VER: $(git rev-parse --short <commit_hash>)
            CBEXEN: VHWSL-v2.0.0.tar.gz
-        run: ./Build --ncb $APPN v2.0.0
+        run: ./Build --ncb $APPN ${GITHUB_SHA::6}
           
       - name: 'Upload standard Artifact'
         uses: actions/upload-artifact@v2
         with:
-          name: VHWSL-v2.0.0
-          path: "/home/runner/work/VHWSL/VHWSL/bin/release/netcoreapp3.1/ubuntu.20.04-x64/VHWSL-v2.0.0.tar.gz"
+          name: VHWSL- $git_hash
+          path: /home/runner/work/VHWSL/VHWSL/bin/release/netcoreapp3.1/ubuntu.20.04-x64/
           retention-days: 10
