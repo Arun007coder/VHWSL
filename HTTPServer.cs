@@ -1,8 +1,4 @@
-﻿using System.Linq;
-using System.ComponentModel;
-using System.Data.Common;
-using System.Security.Cryptography;
-using System;
+﻿using System;
 using System.Diagnostics;
 using System.IO;
 using System.Net;
@@ -10,7 +6,6 @@ using System.Net.Sockets;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Timers;
-using System.Net.NetworkInformation;
 
 namespace HTTP_Web_Server
 {
